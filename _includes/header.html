@@ -1,0 +1,42 @@
+<header class="header {% if page.url == '/' %}header-home{% endif %}">
+     {% if site.logo %}
+     <a href="/" class="logo-img"><img src="/assets/images/{{ site.logo }}" alt="Logo {{ site.name }}" /></a>
+     {% else %}
+     <a href="/" class="logo">{{ site.txt_logo }}</a>
+     {% endif %}
+     
+     <div class="burger" onclick="openNav(this)">
+          <span></span>
+          <span></span>
+          <span></span>
+     </div>
+
+     <nav>
+          <ul>
+               {% for item in site.data.nav %}
+               <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+               {% endfor %}
+               <li class="search">
+                    <div class="btn-search" onclick="openSearch(this)"><i class="fas fa-search"></i></div>
+                    <div class="search-container">
+                         <i class="fas fa-times" onclick="closeSearch(this)"></i>
+                         <div class="content">
+                              <div class="input-search-container">
+                                   <input type="text" placeholder="Search here">
+                              </div>
+
+                              <ul class="tags">
+                                   {% assign categories = site.categories | sort: "order" %}
+                                   {% for category in categories %}
+                                   {% if category.featured == true %}
+                                   <li><a href="{{ category.url }}">{{ category.title | capitalize | replace:'-',' ' }}</a></li>
+                                   {% endif %}
+                                   {% endfor %}
+                                   <li><a href="/categories/">All categories</a></li>
+                              </ul>
+                         </div>
+                    </div>
+               </li>
+          </ul>
+     </nav>
+</header>

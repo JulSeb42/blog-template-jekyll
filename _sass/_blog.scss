@@ -1,0 +1,186 @@
+/*============================================================= Blog =============================================================*/
+
+.blog-container {
+    width: 100%;
+    float: left;
+    padding-right: $margin-medium;
+
+    .article-container {
+        width: 100%;
+        float: left;
+        @include flexbox(flex-start, flex-start, nowrap);
+        flex-direction: column;
+
+        p {
+            width: 100%;
+            float: left;
+            margin-bottom: $margin-medium;
+
+            a {
+                color: $primary;
+                @include body-bold();
+                text-decoration: none;
+                @include transition(all, 0.2s, ease);
+
+                &:hover {
+                    color: $primary-75;
+                }
+            }
+        }
+
+        ul {
+            @extend %ulNone;
+            position: relative;
+            margin-bottom: $margin-medium;
+
+            li {
+                position: relative;
+                padding-left: $margin-medium;
+
+                &:before {
+                    @include icon("\f054");
+                    font-weight: 900;
+                    @include font-size(12px);
+                    position: absolute;
+                    left: $margin-small/2;
+                    top: 0;
+                    line-height: 25.4px;
+                }
+
+                ul {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        ol {
+            @extend %paMar;
+            float: left;
+            margin-top: 0;
+            margin-bottom: $margin-medium;
+            @include flexbox(flex-start, flex-start, nowrap);
+            @include flex-direction(column);
+
+            li {
+                position: relative;
+                padding-left: $margin-small/2;
+                margin-left: $margin-medium;
+            }
+        }
+
+        blockquote, blockquote p {
+            @include body-italic();
+            color: $gray;
+            @include font-size(18px);
+
+            margin: {
+                top: 0;
+                bottom: $margin-medium;
+            }
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        .iframe-youtube {
+            width: 100%;
+            height: 30vw;
+            float: left;
+            margin-bottom: $margin-medium;
+        }
+    }
+
+    hr {
+        margin-bottom: $margin-medium;
+    }
+
+    .tags {
+        width: 100%;
+        float: left;
+        @include flexbox(center, space-between, nowrap);
+        margin-bottom: $margin-medium;
+
+        .tags-list {
+            @extend %ulNone;
+            @include flexbox(flex-start, flex-start, nowrap);
+
+            li {
+                border: 1px solid $gray;
+                padding: $margin-small/2 $margin-medium/2;
+
+                &:not(:last-child) {
+                    margin-right: $margin-small;
+                }
+            }
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            @include flexbox(flex-start, flex-start, nowrap);
+            @include flex-direction(column);
+
+            .tags-list {
+                margin-bottom: $margin-medium;
+            }
+        }
+    }
+
+    h4, h5 {
+        margin-bottom: $margin-medium;
+    }
+
+    .list-comments {
+        @extend %ulNone;
+        @include flexbox(flex-start, flex-start, nowrap);
+        @include flex-direction(column);
+        margin-bottom: $margin-medium;
+
+        li {
+            width: 100%;
+            @include flexbox(flex-start, flex-start, nowrap);
+            @include flex-direction(column);
+
+            &:not(:last-child) {
+                margin-bottom: $margin-small;
+                padding-bottom: $margin-small;
+                border-bottom: 1px solid $gray;
+            }
+
+            .name {
+                @include body-bold();
+                margin-bottom: $margin-small;
+            }
+
+            .meta {
+                @include font-size(14px);
+                color: $gray;
+                margin-bottom: $margin-small;
+            }
+        }
+    }
+
+    .form {
+        @include flex-direction(column);
+
+        ul li {
+            width: 100%;
+
+            &:first-child {
+                padding-right: 0;
+            }
+
+            &:nth-child(2) {
+                padding-left: 0;
+            }
+        }
+
+        .container-send {
+            width: 100%;
+            @include flexbox(center, flex-end, nowrap);
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+            margin-bottom: $margin-medium;
+        }
+    }
+}

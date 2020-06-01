@@ -1,0 +1,121 @@
+/*============================================================= Fonts =============================================================*/
+
+/*====================================== Import ======================================*/
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i&display=swap");
+
+/*====================================== Mixins ======================================*/
+
+.body() {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+.body-italic() {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.body-bold() {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+.body-bold-italic() {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+/*====================================== Styles ======================================*/
+
+h1, h2, h3, h4, h5, h6, p {
+    .paMar;
+}
+
+h1 {
+    .body-bold();
+    .font-size(6vw);
+
+    @media (max-width: @breakpoint-tablet) {
+        .font-size(36px);
+    }
+
+    @media (max-width: @breakpoint-mobile) {
+        .font-size(28px);
+    }
+}
+
+h2 {
+    .body-bold();
+    .font-size(4.5vw);
+
+    @media (max-width: @breakpoint-tablet) {
+        .font-size(30px);
+    }
+
+    @media (max-width: @breakpoint-mobile) {
+        .font-size(24px);
+    }
+}
+
+h3 {
+    .body-bold();
+    .font-size(3vw);
+    margin-bottom: @margin-medium;
+
+    @media (max-width: @breakpoint-tablet) {
+        .font-size(24px);
+    }
+
+    @media (max-width: @breakpoint-mobile) {
+        .font-size(22px);
+    }
+}
+
+h4 {
+    .body-bold();
+    .font-size(2.5vw);
+    margin-bottom: @margin-medium;
+
+    @media (max-width: @breakpoint-tablet) {
+        .font-size(24px);
+    }
+
+    @media (max-width: @breakpoint-mobile) {
+        .font-size(20px);
+    }
+}
+
+h5 {
+    .body-bold();
+    .font-size(2vw);
+    margin-bottom: @margin-medium;
+
+    @media (max-width: @breakpoint-tablet) {
+        .font-size(20px);
+    }
+
+    @media (max-width: @breakpoint-mobile) {
+        .font-size(18px);
+    }
+}
+
+h6 {
+    .body-bold();
+    .font-size(1.8vw);
+    margin-bottom: @margin-medium;
+
+    @media (max-width: @breakpoint-tablet) {
+        .font-size(20px);
+    }
+
+    @media (max-width: @breakpoint-mobile) {
+        .font-size(18px);
+    }
+}
+
+p {
+    .font-size(16px);
+}

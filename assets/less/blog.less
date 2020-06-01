@@ -1,0 +1,183 @@
+/*============================================================= Blog =============================================================*/
+
+.blog-container {
+    width: 100%;
+    float: left;
+    padding-right: @margin-medium;
+
+    .article-container {
+        width: 100%;
+        float: left;
+        .flexbox(flex-start, flex-start, nowrap);
+        flex-direction: column;
+
+        p {
+            width: 100%;
+            float: left;
+            margin-bottom: @margin-medium;
+
+            a {
+                color: @primary;
+                .body-bold();
+                text-decoration: none;
+                .transition(all, 0.2s, ease);
+
+                &:hover {
+                    color: @primary-75;
+                }
+            }
+        }
+
+        ul {
+            .ulNone;
+            position: relative;
+            margin-bottom: @margin-medium;
+
+            li {
+                position: relative;
+                padding-left: @margin-medium;
+
+                &:before {
+                    .icon("\f054");
+                    font-weight: 900;
+                    .font-size(12px);
+                    position: absolute;
+                    left: @margin-small/2;
+                    top: 0;
+                    line-height: 25.4px;
+                }
+
+                ul {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        ol {
+            .paMar;
+            float: left;
+            margin-top: 0;
+            margin-bottom: @margin-medium;
+            .flexbox(flex-start, flex-start, nowrap);
+            .flex-column();
+
+            li {
+                position: relative;
+                padding-left: @margin-small/2;
+                margin-left: @margin-medium;
+            }
+        }
+
+        blockquote, blockquote p {
+            .body-italic();
+            color: @gray;
+            .font-size(18px);
+            margin-top: 0;
+            margin-bottom: @margin-medium
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        .iframe-youtube {
+            width: 100%;
+            height: 30vw;
+            float: left;
+            margin-bottom: @margin-medium;
+        }
+    }
+
+    hr {
+        margin-bottom: @margin-medium;
+    }
+
+    .tags {
+        width: 100%;
+        float: left;
+        .flexbox(center, space-between, nowrap);
+        margin-bottom: @margin-medium;
+
+        .tags-list {
+            .ulNone;
+            .flexbox(flex-start, flex-start, nowrap);
+
+            li {
+                border: 1px solid @gray;
+                padding: @margin-small/2 @margin-medium/2;
+
+                &:not(:last-child) {
+                    margin-right: @margin-small;
+                }
+            }
+        }
+
+        @media (max-width: @breakpoint-mobile) {
+            .flexbox(flex-start, flex-start, nowrap);
+            .flex-column();
+
+            .tags-list {
+                margin-bottom: @margin-medium;
+            }
+        }
+    }
+
+    h4, h5 {
+        margin-bottom: @margin-medium;
+    }
+
+    .list-comments {
+        .ulNone;
+        .flexbox(flex-start, flex-start, nowrap);
+        .flex-column();
+        margin-bottom: @margin-medium;
+
+        li {
+            width: 100%;
+            .flexbox(flex-start, flex-start, nowrap);
+            .flex-column();
+
+            &:not(:last-child) {
+                margin-bottom: @margin-small;
+                padding-bottom: @margin-small;
+                border-bottom: 1px solid @gray;
+            }
+
+            .name {
+                .body-bold();
+                margin-bottom: @margin-small;
+            }
+
+            .meta {
+                .font-size(14px);
+                color: @gray;
+                margin-bottom: @margin-small;
+            }
+        }
+    }
+
+    .form {
+        .flex-column();
+
+        ul li {
+            width: 100%;
+
+            &:first-child {
+                padding-right: 0;
+            }
+
+            &:nth-child(2) {
+                padding-left: 0;
+            }
+        }
+
+        .container-send {
+            width: 100%;
+            .flexbox(center, flex-end, nowrap);
+        }
+
+        @media (max-width: @breakpoint-tablet) {
+            margin-bottom: @margin-medium;
+        }
+    }
+}

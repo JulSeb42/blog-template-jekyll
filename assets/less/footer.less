@@ -1,0 +1,20 @@
+/*============================================================= Footer =============================================================*/
+
+footer {
+    width: 100%;
+    float: left;
+    background-color: @footer-bg;
+    position: relative;
+    z-index: 2;
+    .flexbox(center, space-between, nowrap);
+    padding: @margin-medium 5vw;
+
+    .logo {
+        color: @white;
+        .body-bold();
+
+        span {
+            color: @primary;
+        }
+    }
+}

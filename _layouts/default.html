@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+     <head>
+          <meta charset="UTF-8">
+          <title>{{ page.title | capitalize }} | {{ site.title }}</title>
+          <meta content="IE=edge" http-equiv="X-UA-Compatible">
+          <meta content="width=device-width, initial-scale=1" name="viewport">
+          <meta name="description" content="{{ page.description }}">
+          <meta name="author" content="{{ site.author }}">
+          <meta property="og:title" content="{{ page.title }}" />
+          <meta property="og:type" content="{{ site.type }}" />
+          <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+          <meta property="og:image" content="/assets/images/{{ site.cover_og }}" />
+          <meta property="og:site_name" content="{{ site.title }}" />
+          <meta property="og:locale" content="en_GB" /><!-- Website Language (see here https://stackoverflow.com/questions/3191664/list-of-all-locales-and-their-short-codes) -->
+          <link href="/assets/images/{{ site.favicon }}" rel="shortcut icon">
+
+          <!-- CSS -->
+          <link rel="stylesheet" href="/assets/css/style.css">
+          <link rel="stylesheet" href="/assets/css/font-awesome-all.min.css">
+     </head>
+
+     <body {% if page.title == "About" %}id="about"{% endif %}>
+          {% include header.html %}
+          {% include cover.html %}
+          <main class="container">
+               <div class="content-container">
+                    <div class="col-content {% if page.layout == 'blog' %}blog-container{% endif %}">
+                         {{ content }}
+                    </div>
+                    {% if page.title != "About" %}
+                    {% include aside.html %}
+                    {% endif %}
+               </div>
+          </main>
+          {% include footer.html %}
+
+          <script src="/assets/js/script.js"></script>
+     </body>
+</html>

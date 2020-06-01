@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="article-container">
+     <picture>
+          <source media="(max-width: 600px)" srcset="/assets/images/s-{{ page.cover }}">
+          <source media="(max-width: 1024px)" srcset="/assets/images/m-{{ page.cover }}">
+          <img src="/assets/images/l-{{ page.cover }}" alt="{{ page.alt_cover }}">
+     </picture>
+     {{ content }}
+</div>
+
+<hr />
+
+<div class="tags">
+     <ul class="tags-list">
+          {% for tag in page.tags %}
+          <li>{{ tag }}</li>
+          {% endfor %}
+     </ul>
+
+     <ul class="social">
+          <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+     </ul>
+</div>
+
+{% include comments.html %}

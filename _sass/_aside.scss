@@ -1,0 +1,68 @@
+/*============================================================= Aside =============================================================*/
+
+aside {
+    @include flexbox(flex-start, flex-start, nowrap);
+    @include flex-direction(column);
+
+    .meta {
+        margin-bottom: $margin-medium;
+
+        a {
+            color: $primary;
+            text-decoration: none;
+            @include body-bold();
+            @include transition(all, .2s, ease);
+
+            &:hover {
+                color: $primary-75;
+            }
+        }
+    }
+
+    .list-aside {
+        margin-bottom: $margin-medium;
+        
+        ul {
+            @extend %ulNone;
+            @include flexbox(flex-start, flex-start, nowrap);
+            @include flex-direction(column);
+
+            li {
+                position: relative;
+                @include font-size(16px);
+                @include transition(all, .2s, ease);
+
+                &:not(:last-child) {
+                    margin-bottom: $margin-small;
+                }
+
+                &:before {
+                    @include icon("\f054");
+                    font-weight: 900;
+                    font-size: 12px;
+                    line-height: 22.4px;
+                    margin-right: $margin-small/2;
+                }
+
+                a {
+                    color: $dark-gray;
+                    text-decoration: none;
+                    @include transition(all, .2s, ease);
+                }
+
+                &:hover {
+                    @include transform(translateX(10px));
+                    color: $primary;
+
+                    a {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

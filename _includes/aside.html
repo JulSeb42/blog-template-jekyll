@@ -1,0 +1,37 @@
+<aside>
+    {% if page.layout == "blog" %}
+    <p class="meta">Published on {{ page.date | date: "%-d %B %Y"}} in <a href="/categories/{{ page.category }}">{{ page.category | capitalize | replace:'-',' ' | replace:'_',' ' }}</a>{% assign author = site.authors | where: 'short_name', page.author | first %}{% if author %} by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}.</p>
+    {% endif %}
+    
+    {% if page.url != "/categories/" && site.categories.size > 0 %}
+    <div class="list-aside">
+        <h5>Categories</h5>
+        <ul>
+            {% assign categories = site.categories | sort: "order" %}
+            {% for category in categories limit:3 %}
+            <li><a href="{{ category.url }}">{{ category.title | capitalize | replace:'-',' ' }}</a></li>
+            {% endfor %}
+    
+            {% if site.categories.size > 3 %}
+            <li><a href="/categories/">All the categories</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if page.url != "/authors/" && site.authors.size > 0 %}
+    <div class="list-aside">
+        <h5>Our authors</h5>
+        <ul>
+            {% assign authors = site.authors | sort: "order" %}
+            {% for author in authors limit:3 %}
+            <li><a href="{{ author.url }}">{{ author.name }}</a></li>
+            {% endfor %}
+    
+            {% if site.authors.size > 3 %}
+            <li><a href="/authors/">All authors</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+</aside>

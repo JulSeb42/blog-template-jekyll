@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/* SCSS Document */
+
+/*============================================================= Imports =============================================================*/
+@import "mixins";
+@import "colors";
+@import "fonts";
+@import "layouts";
+
+/*============================================================= General =============================================================*/
+
+* {
+    @include box-sizing(border-box);
+    outline: none;
+}
+
+html,
+body {
+    @extend %paMar;
+    @include body();
+    color: $dark-gray;
+    position: relative;
+    color: $dark-gray;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+.not-found a {
+    color: $primary;
+    @include body-bold();
+    @include transition(all, .2s, ease);
+    text-decoration: none;
+
+    &:hover {
+        color: $primary-75;
+    }
+}
+
+/*============================================================= Components=============================================================*/
+
+@import "components";
+@import "header";
+@import "footer";
+@import "aside";
+
+/*============================================================= Pages =============================================================*/
+
+@import "home";
+@import "lists";
+@import "about";
+@import "blog";

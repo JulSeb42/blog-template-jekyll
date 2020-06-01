@@ -1,0 +1,13 @@
+<footer>
+     {% if site.logo %}
+     <img src="/assets/images/{{ site.logo }}" alt="Logo {{ site.name }}" />
+     {% else %}
+     <p class="logo">{{ site.txt_logo }}</p>
+     {% endif %}
+
+     <ul class="social">
+          {% for item in site.data.social %}
+          <li><a href="{{ item.url }}" target="_blank"><i class="{{ item.icon }}"></i></a></li>
+          {% endfor %}
+     </ul>
+</footer>

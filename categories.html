@@ -1,0 +1,26 @@
+---
+layout: default
+title: Categories
+desc:
+---
+
+<ul class="articles-list">
+     {% assign categories = site.categories | sort: "order" %}
+     {% for category in categories %}
+     <li>
+          <a href="{{ category.url }}" class="picture-article">
+               <picture>
+                    <source media="(max-width: 600px)" srcset="/assets/images/s-{{ category.placeholder }}">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/m-{{ category.placeholder }}">
+                    <img src="/assets/images/l-{{ category.placeholder }}" alt="{{ category.alt_placeholder }}">
+               </picture>
+          </a>
+
+          <div class="content">
+               <p class="title"><a href="{{ category.url }}">{{ category.title | capitalize | replace:'-',' ' }}</a></p>
+               <div class="excerpt">{{ category.excerpt | strip_html | truncate: 70 }}</div>
+               <a href="{{ category.url }}" class="btn btn-read">Read the articles</a>
+          </div>
+     </li>
+     {% endfor %}
+</ul>

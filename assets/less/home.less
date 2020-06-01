@@ -1,0 +1,100 @@
+/*============================================================= Home =============================================================*/
+
+.col-content {
+    .articles-home {
+        width: 100%;
+        float: left;
+        position: relative;
+        .flexbox(flex-start, flex-start, nowrap);
+        margin-bottom: @margin-medium;
+
+        @size-picture: 20vw;
+
+        .container-cover-article {
+            position: relative;
+            width: @size-picture;
+            height: @size-picture;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: relative;
+                z-index: 2;
+                opacity: 0.7;
+                .transition(all, 0.2s, ease);
+            }
+
+            p {
+                font-size: 14px;
+                background-color: @secondary;
+                position: absolute;
+                bottom: 5px;
+                left: 5px;
+                border-radius: 5px;
+                color: @white;
+                z-index: 3;
+                padding: @margin-small @margin-medium;
+                text-transform: capitalize;
+            }
+        }
+
+        .content-article-home {
+            width: calc(100% - @size-picture);
+            padding-left: @margin-medium;
+            height: @size-picture;
+            .flexbox(flex-start, space-between, nowrap);
+            flex-direction: column;
+
+            .title {
+                .font-size(2.2vw);
+                .body-bold();
+
+                a {
+                    color: @dark-gray;
+                    text-decoration: none;
+                    .transition(all, 0.2s, ease);
+
+                    &:hover {
+                        color: @primary;
+                    }
+                }
+
+                @media (max-width: @breakpoint-tablet) {
+                    .font-size(24px);
+                }
+            }
+        }
+
+        &:hover .container-cover-article img {
+            opacity: 1;
+        }
+
+        @media (max-width: @breakpoint-mobile) {
+            .flex-column();
+            
+            .container-cover-article, .content-article-home {
+                width: 100%;
+                padding-left: 0;
+            }
+            
+            .container-cover-article {
+                height: 40vw;
+                margin-bottom: @margin-small;
+            }
+
+            .content-article-home {
+                height: auto;
+
+                .title {
+                    .font-size(22px);
+                    margin-bottom: @margin-small;
+                }
+            }
+        }
+    }
+
+    .center {
+        margin-top: @margin-medium;
+    }
+}

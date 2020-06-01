@@ -1,0 +1,32 @@
+<div class="cover {% if page.url == '/' %}cover-home{% endif %}">
+     {% if page.url == "/" and site.video %}
+     <div class="video-cover">
+          <video autoplay muted loop>
+               <source src="/assets/images/{{ site.video }}" type="video/mp4">
+               Your browser does not support the video tag.
+          </video>
+     </div>
+     {% else %}
+     <div class="bg-cover">
+          <picture>
+               <source media="(max-width: 600px)" srcset="/assets/images/s-{{ site.cover }}">
+               <source media="(max-width: 1024px)" srcset="/assets/images/m-{{ site.cover }}">
+               <img src="/assets/images/l-{{ site.cover }}" alt="{{ site.alt_cover }}">
+          </picture>
+     </div>
+     {% endif %}
+
+     <div class="content">
+          {% if page.url == "/" %}
+          <h2>{{ site.subtitle }}</h2>
+          <h1>{{ site.title }}</h1>
+          <p>{{ site.intro }}</p>
+          {% elsif page.layout == "authors" %}
+          <h1>{{ page.name }}</h1>
+          {% include breadcrumbs.html %}
+          {% else %}
+          <h1>{{ page.title | capitalize | replace:'-',' ' }}</h1>
+          {% include breadcrumbs.html %}
+          {% endif %}
+     </div>
+</div>

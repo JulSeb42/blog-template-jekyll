@@ -1,0 +1,68 @@
+/*============================================================= Aside =============================================================*/
+
+aside {
+    .flexbox(flex-start, flex-start, nowrap);
+    .flex-column();
+
+    .meta {
+        margin-bottom: @margin-medium;
+
+        a {
+            color: @primary;
+            text-decoration: none;
+            .body-bold();
+            .transition(all, .2s, ease);
+
+            &:hover {
+                color: @primary-75;
+            }
+        }
+    }
+
+    .list-aside {
+        margin-bottom: @margin-medium;
+        
+        ul {
+            .ulNone;
+            .flexbox(flex-start, flex-start, nowrap);
+            .flex-column();
+
+            li {
+                position: relative;
+                .font-size(16px);
+                .transition(all, .2s, ease);
+
+                &:not(:last-child) {
+                    margin-bottom: @margin-small;
+                }
+
+                &:before {
+                    .icon("\f054");
+                    font-weight: 900;
+                    font-size: 12px;
+                    line-height: 22.4px;
+                    margin-right: @margin-small/2;
+                }
+
+                a {
+                    color: @dark-gray;
+                    text-decoration: none;
+                    .transition(all, .2s, ease);
+                }
+
+                &:hover {
+                    .transform(translateX(10px));
+                    color: @primary;
+
+                    a {
+                        color: @primary;
+                    }
+                }
+            }
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

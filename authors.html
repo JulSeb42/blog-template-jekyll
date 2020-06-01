@@ -1,0 +1,29 @@
+---
+layout: default
+title: Authors
+desc:
+---
+
+<ul class="articles-list">
+     {% assign authors = site.authors | sort: "order" %}
+     {% for author in authors %}
+     <li>
+          <a href="{{ author.url }}" class="picture-article">
+               <picture>
+                    <source media="(max-width: 600px)" srcset="/assets/images/s-{{ author.picture }}">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/m-{{ author.picture }}">
+                    <img src="/assets/images/l-{{ author.picture }}" alt="{{ author.alt_picture }}">
+               </picture>
+          </a>
+
+          <div class="content">
+               <p class="title"><a href="{{ author.url }}">{{ author.name | capitalize }}</a></p>
+               {% if author.position %}
+               <p class="position">{{ author.position }}</p>
+               {% endif %}
+               <div class="excerpt">{{ author.excerpt | strip_html | truncate: 70 }}</div>
+               <a href="{{ author.url }}" class="btn btn-read">Read their articles</a>
+          </div>
+     </li>
+     {% endfor %}
+</ul>

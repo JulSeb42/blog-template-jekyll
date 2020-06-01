@@ -1,0 +1,91 @@
+---
+layout: default
+title: About
+desc:
+subtitle: We give you the best articles you want.
+cover: cover.jpg
+intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras leo nisl, fermentum in neque a, dapibus finibus felis. Nulla sit amet posuere risus. Ut tincidunt porta tellus eget accumsan. Vestibulum quis lobortis sem. Aliquam bibendum, velit dictum egestas laoreet, metus sem faucibus nisl, non ultrices nisl urna in lacus. Vestibulum et metus eu massa feugiat porta. Suspendisse aliquet justo ut quam cursus commodo.
+---
+<div class="hero">
+     <picture class="cover-hero">
+          <source media="(max-width: 600px)" srcset="/assets/images/s-{{ page.cover }}">
+          <source media="(max-width: 1024px)" srcset="/assets/images/m-{{ page.cover }}">
+          <img src="/assets/images/l-{{ page.cover }}" alt="{{ page.alt_cover }}">
+     </picture>
+
+     <div class="content">
+          <h4>Welcome to {{ site.title }}</h4>
+          <h3>{{ site.intro }}</h3>
+          <p>{{ page.intro | markdownify }}</p>
+     </div>
+</div>
+
+<div class="team-container">
+     <h3>The team</h3>
+     <ul class="articles-list author-about">
+          {% assign authors = site.authors | sort: "order" %}
+          {% for author in authors %}
+          {% if author.featured == true %}
+          <li>
+               <a href="{{ author.url }}" class="picture-article">
+                    <picture>
+                         <source media="(max-width: 600px)" srcset="/assets/images/s-{{ author.picture }}">
+                         <source media="(max-width: 1024px)" srcset="/assets/images/m-{{ author.picture }}">
+                         <img src="/assets/images/l-{{ author.picture }}" alt="{{ author.alt_picture }}">
+                    </picture>
+               </a>
+     
+               <div class="content">
+                    <p class="title"><a href="{{ author.url }}">{{ author.name | capitalize }}</a></p>
+                    {% if author.position %}
+                    <p class="position">{{ author.position }}</p>
+                    {% endif %}
+                    <a href="{{ author.url }}" class="btn btn-read">Read their articles</a>
+               </div>
+          </li>
+          {% endif %}
+          {% endfor %}
+     </ul>
+</div>
+
+<div class="contact-container">
+     <h3>Contact us</h3>
+
+     <div class="contact">
+          <form action="" class="form">
+               <ul>
+                    <li>
+                         <label for="name">Name</label>
+                         <input type="text" name="Name" id="name">
+                    </li>
+
+                    <li>
+                         <label for="email">Email</label>
+                         <input type="email" name="email" id="email">
+                    </li>
+
+                    <li>
+                         <label for="subject">Subject</label>
+                         <input type="text" name="subject" id="subject">
+                    </li>
+
+                    <li>
+                         <label for="message">Message</label>
+                         <textarea name="message" id="message"></textarea>
+                    </li>
+               </ul>
+
+               <input type="submit" value="Send" class="btn btn-primary">
+          </form>
+
+          <ul class="contact-info">
+               <li><span>Address</span><br/>{{ site.address }}</li>
+               <li><span>Phone</span><br/><a href="tel:{{ site.phone }}">{{ site.phone }}</a></li>
+               <li><span>Email</span><br/><a href="mailto:{{ site.email }}">info@yoursite.com</a></li>
+          </ul>
+     </div>
+     
+     {% if site.maps %}
+     <iframe src="{{ site.maps }}" frameborder="0" style="border:0;" allowfullscreen="" class="map"></iframe>
+     {% endif %}
+</div>

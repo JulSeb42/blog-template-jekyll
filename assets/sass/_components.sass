@@ -1,0 +1,155 @@
+/*============================================================= Components =============================================================*/
+
+/*====================================== Buttons ======================================*/
+
+.btn
+  border: none
+  background-color: none
+
+  &.btn-primary
+    background-color: $primary
+    padding: $margin-small $margin-medium
+    border-radius: 8px
+    color: $white
+    text-decoration: none
+    +shadow-buttons($black, 0.2)
+    +transition(all, 0.2s, ease)
+
+    &:hover
+      background-color: $primary-75
+
+/*====================================== Breadcrumbs ======================================*/
+
+.breadcrumbs
+  @extend %ulNone
+  +flexbox(center, flex-start, wrap)
+
+  li
+    position: relative
+    text-transform: capitalize
+
+    &:not(:last-child)
+      margin-right: $margin-small
+
+      &:after
+        content: "/"
+        margin-left: $margin-small
+
+    a
+      color: $primary
+      +transition(all, 0.2s, ease)
+      +body-bold
+      text-decoration: none
+
+      &:hover
+        color: $primary-75
+
+/*====================================== Social ======================================*/
+
+.social
+  @extend %ulNone
+  +flexbox(center, flex-start, nowrap)
+
+  li
+    &:not(:last-child)
+      margin-right: $margin-small
+
+    a
+      background-color: $primary
+      +flexbox(center, center, nowrap)
+      color: $white
+      text-decoration: none
+      $width: 30px
+      width: $width
+      height: $width
+      border-radius: 50%
+      +transition(all, 0.2s, ease)
+
+      &:hover
+        background-color: $white
+        color: $primary
+
+/*====================================== Pagination ======================================*/
+
+.pagination
+  width: 100%
+  float: left
+  +flexbox(center, center, nowrap)
+  @extend %ulNone
+  margin-top: $margin-big
+
+  li
+    &:not(:last-child)
+      margin-right: $margin-small
+
+    a
+      $width: 25px
+      width: $width
+      height: $width
+      background-color: $primary
+      +flexbox(center, center, nowrap)
+      text-decoration: none
+      color: $white
+      +body-bold
+      +border-radius(5px)
+      +font-size(14px)
+      +transition(all, 0.2s, ease)
+
+      &:hover
+        background-color: $white
+        color: $primary
+
+    &.active a
+      background-color: $white
+      color: $primary
+
+/*====================================== HR ======================================*/
+
+hr
+  width: 100%
+  border: 1px solid $gray
+  float: left
+
+/*====================================== Forms ======================================*/
+
+.form
+  width: 100%
+
+  ul
+    @extend %ulNone
+    +flexbox(flex-start, flex-start, wrap)
+
+    li
+      width: 100%
+      +flexbox(flex-start, flex-start, nowrap)
+      +flex-direction(column)
+
+      &:first-child
+        width: 50%
+        padding-right: $margin-small
+
+      &:nth-child(2)
+        width: 50%
+        padding-left: $margin-small
+
+      &:not(:last-child)
+        margin-bottom: $margin-medium
+
+      label
+        +body-bold
+
+      input, textarea
+        width: 100%
+        padding: $margin-small / 2
+        border: 1px solid $gray
+        border-radius: 0
+
+      textarea
+        height: 200px
+
+  .btn
+    float: right
+    margin-top: $margin-medium
+    cursor: pointer
+
+    +font-size(16px)
